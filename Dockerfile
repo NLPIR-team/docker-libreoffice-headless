@@ -19,6 +19,6 @@ RUN wget https://github.com/adobe-fonts/source-han-serif/releases/download/1.001
     -O SourceHanSerif.ttc
 RUN wget https://github.com/adobe-fonts/source-han-sans/releases/download/2.002R/SourceHanSans.ttc \
     -O SourceHanSans.ttc
-COPY ./font/* /usr/share/fonts/
+COPY ./fonts/* /usr/share/fonts/
 RUN mv ./SourceHan*.ttc /usr/share/fonts/
 RUN fc-cache -fv
