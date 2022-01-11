@@ -29,3 +29,4 @@ COPY ./fonts/ST/* /usr/share/fonts/
 COPY ./fonts/FZ/* /usr/share/fonts/
 COPY ./fonts/times/* /usr/share/fonts/
 RUN fc-cache -fv
+ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/lib/libreoffice/program"
