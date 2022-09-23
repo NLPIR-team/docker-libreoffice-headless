@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 LABEL maintainer="yangyaofei@gmail.com"
 # RUN sed -i "s/archive.ubuntu.com/mirrors.aliyun.com/g" /etc/apt/sources.list
 RUN apt update && \
@@ -8,10 +8,11 @@ RUN apt update && \
         procps \
         wget \
         fontconfig \
-        software-properties-common && \
-    add-apt-repository ppa:libreoffice/libreoffice-7-0 && \
+        software-properties-common \
+        gpg-agent
+RUN add-apt-repository ppa:libreoffice/ppa && \
     apt update && \
-    apt install -y libreoffice --no-install-recommends && \
+    apt install -y libreoffice=1:7.4.1~rc2-0ubuntu0.22.04.1~lo1 libreoffice-java-common --no-install-recommends && \
     apt autopurge && \
     rm -rf /var/lib/apt/lists/*
 # Install fonts
